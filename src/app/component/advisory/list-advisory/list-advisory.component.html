@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col-lg-6">
+      <h2 style="color: white;">Listado de Asesorias</h2>
+    </div>
+    <div class="col-lg-6" style="text-align: right">
+      <button mat-raised-button routerLink="../advisories/new">Nuevo</button>
+    </div>
+    <div class="col-lg-6" style="text-align: right">
+      <button mat-raised-button (click)="reporte()">Reporte</button>
+    </div>  
+  </div>
+  <mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Filter by all fields"
+      #input
+    />
+  </mat-form-field>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="idAdvisory">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="student">
+      <th mat-header-cell *matHeaderCellDef>Estudiante</th>
+      <td mat-cell *matCellDef="let element">{{ element.student.firstName + element.student.lastName }}</td>
+    </ng-container>
+    <ng-container matColumnDef="teacher">
+      <th mat-header-cell *matHeaderCellDef>Profesor</th>
+      <td mat-cell *matCellDef="let element">{{ element.teacher.firstName + element.teacher.lastName }}</td>
+    </ng-container>
+    <ng-container matColumnDef="serviceType">
+      <th mat-header-cell *matHeaderCellDef>Servicio</th>
+      <td mat-cell *matCellDef="let element">{{ element.serviceType.description }}</td>
+    </ng-container>
+    <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Fecha</th>
+        <td mat-cell *matCellDef="let element">{{ convertDate(element.date) }}</td>
+      </ng-container>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Acciones</th>
+      <td mat-cell *matCellDef="let element">
+        <a
+          class="pointer"
+          routerLink="edit/{{ element.idAdvisory }}"
+          style="color: primary"
+        >
+          <mat-icon>edit</mat-icon>
+        </a>
+        <a
+          (click)="deleteAdvisory(element.idAdvisory)"
+          class="pointer"
+          style="color: #e15639"
+        >
+          <mat-icon>delete</mat-icon>
+        </a>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+  >
+  </mat-paginator>

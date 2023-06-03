@@ -1,0 +1,23 @@
+.contenedor-padre {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+.contenido {
+    flex: 1 1 auto;
+    background-color: #0C5BA6;   
+}
+.barra{
+    background-color:#013363;
+}
+.button{
+    width: 60px;
+    height:45px;
+    border: 0;
+    border-radius: 5px;
+    background-color: white;
+}
+a:hover{
+    border: 2px solid;
+    border-radius: 7px;
+}

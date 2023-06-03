@@ -1,0 +1,36 @@
+/* login.component.css */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .form-field {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 16px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+  }
+  
+  .submit-button {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .login-fallido {
+    color: red;
+    text-align: center;
+  }
+  .body{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    background-color:#494ac9;
+}

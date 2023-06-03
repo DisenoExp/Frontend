@@ -1,0 +1,34 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "fullName": "Ariana Rodriguez",
+      "email": "arianarodriguez@gmail.com",
+      "username": "arianarodriguez"
+    },
+    {
+      "id": 2,
+      "fullName": "Juan Torres",
+      "email": "juantorres@gmail.com",
+      "username": "juantorres"
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "description": "Mejora de CV"
+    },
+    {
+      "id": 2,
+      "description": "Creación de CV"
+    }
+  ],
+  "advisories": [
+    {
+      "id": 1,
+      "student": "sergio",
+      "service": "Crear Cv",
+      "date": "2022-10-19T05:00:00.000Z"
+    }
+  ]
+}

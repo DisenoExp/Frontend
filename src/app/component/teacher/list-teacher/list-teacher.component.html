@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-lg-6">
+    <h2 style="color: white;">Listado de Profesores</h2>
+  </div>
+  <div class="col-lg-6" style="text-align: right">
+    <button mat-raised-button (click)="reporte()">Reporte</button>
+  </div>
+</div>
+<mat-form-field appearance="standard">
+  <mat-label>Filter</mat-label>
+  <input
+    matInput
+    (keyup)="applyFilter($event)"
+    placeholder="Filter by all fields"
+    #input
+  />
+</mat-form-field>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="idTeacher">
+    <th mat-header-cell *matHeaderCellDef>Id</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+  <ng-container matColumnDef="firstName">
+    <th mat-header-cell *matHeaderCellDef>Nombre</th>
+    <td mat-cell *matCellDef="let element">{{ element.firstName }}</td>
+  </ng-container>
+  <ng-container matColumnDef="lastName">
+    <th mat-header-cell *matHeaderCellDef>Apellido</th>
+    <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
+  </ng-container>
+  <ng-container matColumnDef="dni">
+    <th mat-header-cell *matHeaderCellDef>Dni</th>
+    <td mat-cell *matCellDef="let element">{{ element.dni }}</td>
+  </ng-container>
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>Email</th>
+    <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+  </ng-container>
+  <ng-container matColumnDef="cellphone">
+    <th mat-header-cell *matHeaderCellDef>Cellphone</th>
+    <td mat-cell *matCellDef="let element">{{ element.cellphone }}</td>
+  </ng-container>
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Acciones</th>
+    <td mat-cell *matCellDef="let element">
+      <a
+        class="pointer"
+        routerLink="edit/{{ element.idTeacher }}"
+        style="color: primary"
+      >
+        <mat-icon>edit</mat-icon>
+      </a>
+      <a
+        (click)="deleteTeacher(element.idTeacher)"
+        class="pointer"
+        style="color: #e15639"
+      >
+        <mat-icon>delete</mat-icon>
+      </a>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<mat-paginator
+  [pageSizeOptions]="[5, 10, 20]"
+  showFirstLastButtons
+  aria-label="Select page of periodic elements"
+>
+</mat-paginator>

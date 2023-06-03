@@ -1,0 +1,88 @@
+<div class="row">
+    <div class="col-lg-6">
+      <h2>Editar Profesor</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">
+      <form [formGroup]="myForm" autocomplete="off">
+        <div class="col-lg-12">
+          <mat-form-field class="example-container" [style.fontSize.px]="16" appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="firstName" placeholder="firstName" />
+          </mat-form-field>
+          <div
+            *ngIf="
+              myForm.get('firstName')?.hasError('required') &&
+              myForm.get('firstName')?.touched
+            "
+            style="margin-top: -20px"
+          >
+            <span class="mda-form-msg"> This field is required </span>
+          </div>
+        </div>
+  
+        <div class="col-lg-12">
+          <mat-form-field class="example-container" [style.fontSize.px]="16" appearance="outline">
+            <mat-label>Apellido</mat-label>
+            <input matInput formControlName="lastName" placeholder="lastName" />
+          </mat-form-field>
+          <div
+            *ngIf="
+              myForm.get('lastName')?.hasError('required') &&
+              myForm.get('lastName')?.touched
+            "
+            style="margin-top: -20px"
+          >
+            <span class="mda-form-msg"> This field is required </span>
+          </div>
+        </div>
+  
+        <div class="col-lg-12">
+          <mat-form-field class="example-container" [style.fontSize.px]="16" appearance="outline">
+            <mat-label>DNI</mat-label>
+            <input matInput formControlName="dni" placeholder="dni" />
+            <mat-error *ngIf="myForm.get('dni')?.invalid && (myForm.get('dni')?.dirty || myForm.get('dni')?.touched)">
+              DNI debe tener 8 caracteres.
+            </mat-error>
+          </mat-form-field>
+        </div>
+  
+        <div class="col-lg-12">
+          <mat-form-field class="example-container" [style.fontSize.px]="16" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" placeholder="email" />
+            <mat-error *ngIf="myForm.get('email')?.invalid && (myForm.get('email')?.dirty || myForm.get('email')?.touched)">
+              Por favor ingrese un email válido.
+            </mat-error>
+          </mat-form-field>
+        </div>
+  
+        <div class="col-lg-12">
+          <mat-form-field class="example-container" [style.fontSize.px]="16" appearance="outline">
+            <mat-label>Cellphone</mat-label>
+            <input matInput formControlName="cellphone" placeholder="cellphone" />
+            <mat-error *ngIf="myForm.get('cellphone')?.invalid && (myForm.get('cellphone')?.dirty || myForm.get('cellphone')?.touched)">
+              Por favor ingrese un numero de celular valido.
+            </mat-error>
+          </mat-form-field>
+        </div>
+  
+  
+        <div class="col-lg-12">
+          <button
+            mat-raised-button
+            [disabled]="myForm.invalid"
+            style="margin-left: 10 px"
+            (click)="updateTeacher()"
+          >
+            Guardar
+          </button>
+          <button mat-raised-button color="primary" routerLink="/header/teachers">
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

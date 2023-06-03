@@ -1,0 +1,25 @@
+<!-- login.component.html -->
+<div class="body">
+  <div class="container">
+    <mat-card>
+      <mat-card-title>Iniciar sesión</mat-card-title>
+  <form [formGroup]="loginForm" (ngSubmit)="onLoginFormSubmit()">
+    <mat-form-field class="form-field">
+      <input matInput placeholder="Usuario" formControlName="usuario">
+      <mat-error *ngIf="loginForm.get('usuario').hasError('required')">Usuario es obligatorio</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <input matInput type="password" placeholder="Contraseña" formControlName="contrasena">
+      <mat-error *ngIf="loginForm.get('contrasena').hasError('required')">Contraseña es obligatoria</mat-error>
+    </mat-form-field>
+
+    <div class="button-container">
+      <button type="submit" mat-raised-button color="primary" class="submit-button">Iniciar sesión</button>
+    </div>
+  </form>
+</mat-card>
+  
+</div>
+</div>
+
